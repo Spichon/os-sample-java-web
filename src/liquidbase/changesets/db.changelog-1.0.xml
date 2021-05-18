@@ -1,0 +1,183 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="x481309 (generated)" id="1619538497967-1">
+        <createTable tableName="t_action">
+            <column name="pk_act_id" type="numeric">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="t_action_pkey"/>
+            </column>
+            <column name="fk_act_ins_id" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="act_name" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="act_start_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="act_end_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="act_status" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-2">
+        <createTable tableName="t_instruction_current">
+            <column name="pk_ins_id" type="numeric">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="t_instruction_current_pkey"/>
+            </column>
+            <column name="ins_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ins_instruction" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ins_caller_identity" type="VARCHAR(255)"/>
+            <column name="ins_status" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ins_input_data" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-3">
+        <createTable tableName="t_instruction_history">
+            <column name="pk_inh_id" type="numeric">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="t_instruction_history_pkey"/>
+            </column>
+            <column name="inh_start_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inh_end_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inh_log_file" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-4">
+        <createTable tableName="t_prc_step">
+            <column name="pk_prc_stp_id" type="numeric">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="t_prc_step_pkey"/>
+            </column>
+            <column name="fk_prc_mast_id" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prc_stp_status" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prc_stp_index" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prc_stp_job_id" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-5">
+        <createTable tableName="t_process">
+            <column name="pk_prc_id" type="numeric">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="t_process_pkey"/>
+            </column>
+            <column name="prc_start_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prc_master_id" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prc_current_step_id" type="numeric"/>
+            <column name="prc_user" type="VARCHAR(255)"/>
+            <column name="prc_dm" type="numeric"/>
+            <column name="prc_lstep_pause_data" type="TEXT"/>
+            <column name="prc_discriminator" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-6">
+        <createTable tableName="t_schedule">
+            <column name="pk_sch_id" type="numeric">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="t_schedule_pkey"/>
+            </column>
+            <column name="sch_name" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_start_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_enabled" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_minute" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_hour" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_day_of_month" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_month" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_day_of_week" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_scenario" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_input_data" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sch_last_exec_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="sch_last_exec_res" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-7">
+        <addUniqueConstraint columnNames="prc_master_id" constraintName="t_process_prc_master_id_key" tableName="t_process"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-8">
+        <addForeignKeyConstraint baseColumnNames="fk_prc_mast_id" baseTableName="t_prc_step" constraintName="t_prc_step_fk_prc_mast_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pk_prc_id" referencedTableName="t_process" validate="true"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-9">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_action_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-10">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_instruction_current_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-11">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_instruction_history_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-12">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_prc_step_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-13">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_process_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-14">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_schedule_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-15">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_xint_step_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-16">
+        <createSequence cacheSize="20" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_xintegrator_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="x481309 (generated)" id="1619538497967-17">
+        <createTable tableName="t_lock_dmrl">
+            <column name="ldm_lock" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ldm_values" type="VARCHAR(999)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ldm_fields" type="VARCHAR(999)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ldm_inst_id" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
