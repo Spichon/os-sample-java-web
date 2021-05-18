@@ -180,7 +180,4 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="x481309 (generated)" id="1619538497967-16">
-        <createSequence cacheSize="20" cycle="falsee" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="t_xintegrator_seq" startValue="1"/>
-    </changeSet>
 </databaseChangeLog>
