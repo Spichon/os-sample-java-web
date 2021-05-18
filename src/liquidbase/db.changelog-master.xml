@@ -7,8 +7,8 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 	<include file="src/liquidbase/changesets/db.changelog-1.0.xml"/>
+	<include file="src/liquidbase/changesets/db.changelog-2.0.xml"/>
 
-	<!--<include file="src/liquidbase/changesets/db.changelog-2.0.xml"/>-->
 	<!-- Load Data -->
 	<!--include file="data/db.data-1.sql"/-->
 

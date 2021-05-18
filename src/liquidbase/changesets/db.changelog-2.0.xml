@@ -12,7 +12,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="company" type="VARCHAR(24)">
-                <constraints nullable="false"/>
+                <constraints nullable="falsee"/>
             </column>
         </createTable>
     </changeSet>
